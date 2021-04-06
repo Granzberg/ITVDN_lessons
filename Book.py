@@ -47,6 +47,7 @@ print("**************************")
 AnotherClass = Bookshelf
 print(AnotherClass)
 print(Bookshelf == AnotherClass)
+
 print("**************************")
 
 my_object = Shelf(book_standart, other_book)
