@@ -13,10 +13,19 @@ class Bookshelf:
 
 
 class Shelf:
+    def __init__(self, author, name):
+        self.author = author
+        self.name = name
+
     def __repr__(self):
         return "Bookshelf({!r}, {!r})".format(self.author, self.name)
+
     def __str__(self):
-        return "{}{:+d}i".format(self.author, self.name)
+        return "Bookshelf{!r}, {!r}".format(self.author, self.name)
+
+    def comparison_book(self):
+        if book_standart == other_book:
+            print()
 
 book_standart = Bookshelf("Maximilian Maxim", "Maximilian's Adventure", 1999, "adventure")
 other_book = Bookshelf("some author", "some name of book", 2000, "sci-fi")
@@ -35,6 +44,6 @@ print(AnotherClass)
 print(Bookshelf == AnotherClass)
 print("**************************")
 my_object = Shelf(book_standart, other_book)
-print(my_object)
+print(my_object.comparison_book())
 
 
