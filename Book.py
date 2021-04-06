@@ -5,27 +5,20 @@ class Bookshelf:
         self.year = year
         self.genre = genre
 
+    def __eq__(self, other):
+        return (self.author, self.name) == (other.author, other.name)
+
+    def __repr__(self):
+        return "({!r}, {!r})".format(self.author, self.name)
+
+    def __str__(self):
+        return "{!r}, {!r}".format(self.author, self.name)
+
     def book1(self):
         print(self.author)
         print(self.name)
         print(self.year)
         print(self.genre)
-
-
-class Shelf:
-    def __init__(self, author, name):
-        self.author = author
-        self.name = name
-
-    def __repr__(self):
-        return "Bookshelf({!r}, {!r})".format(self.author, self.name)
-
-    def __str__(self):
-        return "Bookshelf{!r}, {!r}".format(self.author, self.name)
-
-    def comparison_book(self):
-        print(book_standart == other_book)
-
 
 
 book_standart = Bookshelf("Maximilian Maxim", "Maximilian's Adventure", 1999, "adventure")
@@ -44,13 +37,10 @@ print("**************************")
 other_book3.book1()
 print("**************************")
 
-AnotherClass = Bookshelf
-print(AnotherClass)
-print(Bookshelf == AnotherClass)
+print(Bookshelf.__eq__(book_standart, other_book))
+print(Bookshelf.__str__(book_standart))
+print(Bookshelf.__repr__(other_book2))
 
-print("**************************")
 
-my_object = Shelf(book_standart, other_book)
-my_object.comparison_book()
 
 
