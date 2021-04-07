@@ -1,9 +1,12 @@
-class Celsius:
+class Temperature:
     def __init__(self, temperature=0):
         self.temperature = temperature
 
     def to_fahrenheit(self):
         return (self.temperature * 1.8) + 32
+
+    def to_celsius(self):
+        return (self.temperature - 32) / 1.8
 
     @property
     def temperature(self):
@@ -18,10 +21,15 @@ class Celsius:
         self._temperature = value
 
 
-human = Celsius(37)
+human = Temperature(37)
+
 
 print(human.temperature)
 
 print(human.to_fahrenheit())
 
-coldest_thing = Celsius(-300)
+human = Temperature()
+
+print(human.to_celsius())
+
+coldest_thing = Temperature(-270)
