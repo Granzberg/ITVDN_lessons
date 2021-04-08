@@ -13,23 +13,8 @@ class Bookshelf:
 
 
 class Comment:
-    def __init__(self, first_book_comment, second_book_comment, third_book_comment, fourth_book_comment):
-        self.first_book_comment = first_book_comment
-        self.second_book_comment = second_book_comment
-        self.third_book_comment = third_book_comment
-        self.fourth_book_comment = fourth_book_comment
-
-    def comment_book1(self):
-        print("Отзыв: {}".format(self.first_book_comment))
-
-    def comment_book2(self):
-        print("Отзыв: {}".format(self.second_book_comment))
-
-    def comment_book3(self):
-        print("Отзыв: {}".format(self.third_book_comment))
-
-    def comment_book4(self):
-        print("Отзыв: {}".format(self.fourth_book_comment))
+    def print_info(self):
+        print(first_book.shelf(), "Коментарии: {}".format(self.f_comment))
 
 
 first_book = Bookshelf("Maximilian Maxim", "Maximilian's Adventure", 1999, "adventure")
@@ -37,19 +22,21 @@ second_book = Bookshelf("some author", "some name of book", 2000, "sci-fi")
 third_book = Bookshelf("Emili Bronte", "Wuthering Heights", 1998, "Novel")
 fourth_book = Bookshelf("Erikh Mariya Remark", "Triumphal Arch. Borrowed life", 1988, "Novel")
 
-first_book_comment = Comment("Не читал и не хочу, назване не нравится.")
-second_book_comment = Comment("Странное название для книги.")
-third_book_comment = Comment("Книжка хороша, рекомендую.")
-fourth_book_comment = Comment("Хорошая книга, рекомендую.")
+first_book_comment = Comment()
+first_book_comment.f_comment = "Не читал и не хочу, назване не нравится."
 
-first_book.shelf()
-first_book_comment.comment_book1()
+'''second_book_comment.comment = ("Странное название для книги.")
+third_book_comment = ("Книжка хороша, рекомендую.")
+fourth_book_comment = ("Хорошая книга, рекомендую.")'''
+
+#first_book.shelf()
+first_book_comment.print_info()
 print("**************************")
-second_book.shelf()
-second_book_comment.comment_book2()
+'''second_book.shelf()
+second_book_comment.
 print("**************************")
 third_book.shelf()
 third_book_comment.comment_book3()
 print("**************************")
 fourth_book.shelf()
-fourth_book_comment.comment_book4()
+fourth_book_comment.comment_book4()'''
