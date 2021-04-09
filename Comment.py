@@ -6,14 +6,14 @@ class Bookshelf:
         self.genre_book = genre_book
 
     def shelf(self):
-        return "Автор: {}\n".format(self.author), " Название: {}\n".format(self.name_book),\
-               "Год выпуска: {}\n".format(self.year_book), " Жанр: {}".format(self.genre_book)
+        return "Автор:       {}\nНазвание:    {}\nГод выпуска: {}" \
+               "\nЖанр:        {}".format(self.author, self.name_book, self.year_book, self.genre_book)
 
 
 class Comment:
     def __init__(self, first_book_comment, list1):
         self.first_book_comment = first_book_comment
-        list1 = []
+    list1 = []
 
     def __add__(self, other):
         return first_book.shelf(), "\nКоментарии: {}".format(other.list1)
@@ -37,7 +37,7 @@ third_book_comment = ("Книжка хороша, рекомендую.")
 fourth_book_comment = ("Хорошая книга, рекомендую.")'''
 
 
-#print(first_book.shelf())
+print(first_book.shelf())
 print(Comment.__add__())
 print("**************************")
 print(second_book.shelf())
