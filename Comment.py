@@ -11,17 +11,25 @@ class Bookshelf:
 
 
 class Comment:
-    def __init__(self, first_book_comment, list1):
+
+    list_comments = [first_book_comment, second_book_comment, third_book_comment, fourth_book_comment]
+
+    def __init__(self, list_comments):
+        self.list_comments = list_comments
         self.first_book_comment = first_book_comment
-    list1 = []
+        self.second_book_comment = second_book_comment
+        self.third_book_comment = third_book_comment
+        self.fourth_book_comment = fourth_book_comment
+        self.list1 = []
 
-    def __add__(self, other):
-        return first_book.shelf(), "\nКоментарии: {}".format(other.list1)
+    def print_list(self):
+        return self.list1.append(self)
 
+    def add_list(self):
+        pass
 
-    #def print_list(self):
-        #list1.
-        #return
+    def adding_comments(self):
+        return "{}\nКоментарии:  {}".format(first_book.shelf(), Comment.print_list(self))
 
 
 first_book = Bookshelf("Maximilian Maxim", "Maximilian's Adventure", 1999, "adventure")
@@ -31,20 +39,19 @@ fourth_book = Bookshelf("Erikh Mariya Remark", "Triumphal Arch. Borrowed life", 
 
 
 first_book_comment = Comment("Не читал и не хочу, назване не нравится.")
+second_book_comment = Comment("Странное название для книги.")
+third_book_comment = Comment("Книжка хороша, рекомендую.")
+fourth_book_comment = Comment("Хорошая книга, рекомендую.")
 
-'''second_book_comment.comment = ("Странное название для книги.")
-third_book_comment = ("Книжка хороша, рекомендую.")
-fourth_book_comment = ("Хорошая книга, рекомендую.")'''
 
-
-print(first_book.shelf())
-print(Comment.__add__())
+#print(first_book.shelf())
+print(Comment.adding_comments(first_book_comment))
 print("**************************")
-print(second_book.shelf())
-#second_book_comment.
+#print(second_book.shelf())
+#print(Comment.adding_comments())
 print("**************************")
-print(third_book.shelf())
-#third_book_comment.comment_book3()
+#print(third_book.shelf())
+print(Comment.adding_comments(third_book_comment))
 print("**************************")
-print(fourth_book.shelf())
-#fourth_book_comment.comment_book4()
+#print(fourth_book.shelf())
+print(Comment.adding_comments(fourth_book_comment))
