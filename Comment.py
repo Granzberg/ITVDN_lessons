@@ -4,38 +4,30 @@ class Bookshelf:
         self.name_book = name_book
         self.year_book = year_book
         self.genre_book = genre_book
+        self.comments = []
 
-    def shelf(self):
-        return "Автор:       {}\nНазвание:    {}\nГод выпуска: {}" \
-               "\nЖанр:        {}".format(self.author, self.name_book, self.year_book, self.genre_book)
+# заменить на метод str ????
+    def __str__(self):
+        s = "Автор:       {}\nНазвание:    {}\nГод выпуска: {}\nЖанр:        {}"
+        return s.format(self.author, self.name_book, self.year_book, self.genre_book)
 
 
 class Comment:
-    first_book_comment = "Не читал и не хочу, назване не нравится."
-    second_book_comment = "Странное название для книги."
-    third_book_comment = "Книжка хороша, рекомендую."
-    fourth_book_comment = "Хорошая книга, рекомендую."
+    def __init__(self, comments):
+        self.comments = comments
 
-    def __init__(self, first_book_comment, second_book_comment, third_book_comment, fourth_book_comment):
-        #self.list_comments = list_comments
-        self.first_book_comment = first_book_comment
-        self.second_book_comment = second_book_comment
-        self.third_book_comment = third_book_comment
-        self.fourth_book_comment = fourth_book_comment
-        #self.list1 = []
-
-    #def print_list(self):
-     #   return list.append()
-
+# заменить на метод str????
     def add_list(self):
-        first_list_comments = [self.first_book_comment]
-        second_list_comments = [self.second_book_comment]
-        third_list_comments = [self.third_book_comment]
-        fourth_list_comments = [self.fourth_book_comment]
+        first_list_comments = [first_book.comments]
+        second_list_comments = [second_book.comments]
+        third_list_comments = [third_book.comments]
+        fourth_list_comments = [fourth_book.comments]
         return first_list_comments, second_list_comments, third_list_comments, fourth_list_comments
 
-    def adding_comments(self):
-        return "{}\nКоментарии:  {}".format(first_book.shelf(), Comment.add_list(self))
+# заменить на метод str ????
+    def __str__(self):
+        g = "{}\nКоментарии:  {}"
+        return g.format(first_book.__str__(), Comment.add_list(self))
 
 
 first_book = Bookshelf("Maximilian Maxim", "Maximilian's Adventure", 1999, "adventure")
@@ -44,20 +36,20 @@ third_book = Bookshelf("Emili Bronte", "Wuthering Heights", 1998, "Novel")
 fourth_book = Bookshelf("Erikh Mariya Remark", "Triumphal Arch. Borrowed life", 1988, "Novel")
 
 
-#first_book_comment = Comment("Не читал и не хочу, назване не нравится.")
-#second_book_comment = Comment("Странное название для книги.")
-#third_book_comment = Comment("Книжка хороша, рекомендую.")
-#fourth_book_comment = Comment("Хорошая книга, рекомендую.")
+first_book.comments = Comment("Не читал и не хочу, назване не нравится.")
+second_book.comments = Comment("Странное название для книги.")
+third_book.comments = Comment("Книжка хороша, рекомендую.")
+fourth_book.comments = Comment("Хорошая книга, рекомендую.")
 
 
-#print(first_book.shelf())
-print(Comment.adding_comments())
+#print(first_book.__str__())
+print(Comment.__str__(first_book.comments))
 print("**************************")
-#print(second_book.shelf())
+#print(second_book.__str__())
 #print(Comment.adding_comments())
 print("**************************")
-#print(third_book.shelf())
+#print(third_book.__str__())
 #print(Comment.adding_comments(third_book_comment))
 print("**************************")
-#print(fourth_book.shelf())
+#print(fourth_book.__str__())
 #print(Comment.adding_comments(fourth_book_comment))
