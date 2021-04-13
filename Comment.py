@@ -1,33 +1,23 @@
 class Bookshelf:
-    def __init__(self, author, name_book, year_book, genre_book):
+    def __init__(self, author, name_book, year_book, genre_book, comments=[]):
         self.author = author
         self.name_book = name_book
         self.year_book = year_book
         self.genre_book = genre_book
-        self.comments = []
+        self.comments = comments
 
-# заменить на метод str ????
     def __str__(self):
-        s = "Автор:       {}\nНазвание:    {}\nГод выпуска: {}\nЖанр:        {}"
-        return s.format(self.author, self.name_book, self.year_book, self.genre_book)
+        s = "Автор:       {}\nНазвание:    {}\nГод выпуска: {}\nЖанр:        {}"\
+            .format(self.author, self.name_book, self.year_book, self.genre_book)
+        return s + "\n{}".format(self.comments)
 
 
 class Comment:
-    def __init__(self, comments):
-        self.comments = comments
+    def __init__(self, text):
+        self.text = text
 
-# заменить на метод str????
-    def add_list(self):
-        first_list_comments = [first_book.comments]
-        second_list_comments = [second_book.comments]
-        third_list_comments = [third_book.comments]
-        fourth_list_comments = [fourth_book.comments]
-        return first_list_comments, second_list_comments, third_list_comments, fourth_list_comments
-
-# заменить на метод str ????
     def __str__(self):
-        g = "{}\nКоментарии:  {}"
-        return g.format(first_book.__str__(), Comment.add_list(self))
+        return "Коментарии:  {}".format(self.text)
 
 
 first_book = Bookshelf("Maximilian Maxim", "Maximilian's Adventure", 1999, "adventure")
@@ -42,14 +32,10 @@ third_book.comments = Comment("Книжка хороша, рекомендую."
 fourth_book.comments = Comment("Хорошая книга, рекомендую.")
 
 
-#print(first_book.__str__())
-print(Comment.__str__(first_book.comments))
+print(first_book.__str__())
 print("**************************")
-#print(second_book.__str__())
-#print(Comment.adding_comments())
+print(second_book.__str__())
 print("**************************")
-#print(third_book.__str__())
-#print(Comment.adding_comments(third_book_comment))
+print(third_book.__str__())
 print("**************************")
-#print(fourth_book.__str__())
-#print(Comment.adding_comments(fourth_book_comment))
+print(fourth_book.__str__())
