@@ -22,22 +22,53 @@ class Sedan(Vehicles):
 
     def v_parameters(self):
         s = "{}\nКузов: {}\nКол-во дверей: {}\n" \
-            "Привод:{}".format(Vehicles.v_parameters(self), self.body, self.doors, self.drive_unit)
+            "Привод: {}".format(Vehicles.v_parameters(self), self.body, self.doors, self.drive_unit)
         return s
 
 
 class Pickup(Vehicles):
-    pass
+    def __init__(self, trunk_volume, gearbox, body, doors, drive_unit):
+        self.engine = '160'
+        self.air_conditioner = 'True'
+        self.central_locking = 'False'
+        self.trunk_volume = trunk_volume
+        self.gearbox = gearbox
+        self.body = body
+        self.doors = doors
+        self.drive_unit = drive_unit
 
+    def p_parameters(self):
+        p = "{}\nОбьем багажника: {} l\nКаробка передеч: {}\nКузов: {}\nКол-во дверей: {}\nПривод: {}"\
+            .format(Vehicles.v_parameters(self), self.trunk_volume, self.gearbox, self.body, self.doors, self.drive_unit)
+        return p
+    
 
 class Sport(Vehicles):
-    pass
+    def __init__(self, body, drive_unit, spoiler, turbocharging):
+        self.engine = '450'
+        self.air_conditioner = 'False'
+        self.central_locking = 'True'
+        self.body = body
+        self.drive_unit = drive_unit
+        self.spoiler = spoiler
+        self.turbocharging = turbocharging
+
+    def sp_parameters(self):
+        sp = "{}\nКузов: {}\nКаробка передеч: {}\nСпойлер: {}\nТурбонаддув: {}" \
+            .format(Vehicles.v_parameters(self), self.body, self.drive_unit, self.spoiler, self.turbocharging,
+                    self.drive_unit)
+        return sp
 
 
 vehicles = Vehicles('150', 'True', 'True')
 sedan = Sedan('sedan', '4 doors', 'four-wheel drive')
-
+pickup = Pickup('1060', 'five-speed gearbox', 'pickup', '2 doors', 'four-wheel drive')
+sport = Sport('sport', 'five-speed gearbox', 'True', 'True')
 
 print(Vehicles.v_parameters(vehicles))
 print("*" * 30)
 print(Sedan.v_parameters(sedan))
+print("*" * 30)
+print(Pickup.p_parameters(pickup))
+print("*" * 30)
+print(Sport.sp_parameters(sport))
