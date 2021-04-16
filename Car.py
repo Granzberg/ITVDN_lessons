@@ -1,31 +1,36 @@
 class Car:
-    def __init__(self, engine, body, wheels):
+    def __init__(self, engine, body, wheels, cars=[]):
         self.engine = engine
         self.body = body
         self.wheels = wheels
+        self.cars = cars
+
+    def __str__(self):
+        s = "\nМошность двигателя: {}\nКузов:              {}\nРежим хода:         {}"\
+            .format(self.engine, self.body, self.wheels)
+        return s
 
 
 class CarShowroom:
-    def __init__(self, cars=[]):
-        self.cars = cars
-        #self.choice = choice
+    def __init__(self, text):
+        self.text = text
 
-    def car_sale(self, choice):
+    def car_sale(self):
         if choice == 'first car':
-            self.cars.index(0)
+            print(Car.__str__(first_car))
         elif choice == 'second car':
-            self.cars.index(1)
+            print(Car.__str__(second_car))
         elif choice == 'third car':
-            self.cars.index(2)
-        else:
-            self.cars.index(3)
-        return self.cars
+            print(Car.__str__(third_car))
+        elif choice == 'fourth car':
+            print(Car.__str__(fourth_car))
 
-    cars = ['first_car', 'second_car', 'third_car', 'fourth_car']
 
+first_car = Car('250 h/p', 'sedan', 'city')
+second_car = Car('500 h/p', 'R-class', 'city')
+third_car = Car('350 h/p', 'sport_sedan', 'city')
+fourth_car = Car('250 h/p', 'jeep', '4x4')
 
 choice = input("Выберите машину(first car, second car, third car, fourth car): ")
-
-
 sel = CarShowroom
-print(sel.car_sale())
+sel.car_sale(choice)
