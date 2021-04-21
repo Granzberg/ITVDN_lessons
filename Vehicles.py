@@ -41,7 +41,7 @@ class Pickup(Vehicles):
         p = "{}\nОбьем багажника: {} l\nКаробка передеч: {}\nКузов: {}\nКол-во дверей: {}\nПривод: {}"\
             .format(Vehicles.v_parameters(self), self.trunk_volume, self.gearbox, self.body, self.doors, self.drive_unit)
         return p
-    
+
 
 class Sport(Vehicles):
     def __init__(self, body, drive_unit, spoiler, turbocharging):

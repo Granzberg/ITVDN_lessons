@@ -22,7 +22,6 @@ class Mouse:
         print("Нажатие на кнопку(click)")
 
 
-
 Mouse.__str__(print())
 Rectangle.__str__(print())
 
