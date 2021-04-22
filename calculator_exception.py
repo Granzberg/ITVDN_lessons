@@ -16,7 +16,7 @@ def calculator():
                 result = x / y
             elif choice == "**":
                 result = x ** y
-        except ZeroDivisionError as e:
+        except (ZeroDivisionError, ValueError) as e:
             print("Ошибка: ", e)
             print("Повторите ввод")
             print("*" * 30)
