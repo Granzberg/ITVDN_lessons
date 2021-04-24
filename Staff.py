@@ -7,21 +7,25 @@ class Employee(object):
     def __str__(self):
         return "Имя: {}\nФамилия:  {}\nГод поступления на работу:  {}".format(self.name, self.surname, self.year_hiring)
 
-     
-name = "Maxim"
-surname = "Shishov"
-year_hiring = "2020"
 
+worker = []
+staff = []
 
-def up_list():
-    staff = []
-    while True:
-        if staff == list:
-            staff.append(e.__str__())
-            print(staff)
+while True:
+    try:
+        b = input("Добавить ещё одного работника(y/n): ")
+
+        if b == "y":
+            name = input("Имя: ")
+            surname = input("Фамилия: ")
+            year_hiring = input("Год постуления: ")
+            e = Employee(name, surname, year_hiring)
+            worker.append(e)
+            staff.append(worker)
         else:
             break
 
+    except ValueError as error:
+        print("Error: ", error)
 
-e = Employee(name, surname, year_hiring)
-up_list()
+print(staff)
