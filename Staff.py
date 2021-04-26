@@ -9,7 +9,6 @@ class Employee(object):
 
 
 workers = []
-
 how_many_workers = int(input("Скольок работников добавить?: "))
 for i in range(how_many_workers):
     try:
@@ -18,16 +17,15 @@ for i in range(how_many_workers):
         year_hiring = int(input("Год постуления: "))
         e = Employee(name, surname, year_hiring)
         workers.append(e)
-        workers.append(workers[0] + workers[i])
-
+        print("*" * 30)
     except (ValueError, TypeError) as error:
         print("Error: ", error)
 
 
 print("*"*30)
+year = int(input("Поиск по году: "))
+print("*"*30)
 for personal in workers:
-    print(personal)
-    print("*" * 30)
-
-
-
+    if personal.year_hiring > year - 1:
+        print(personal)
+        print("*" * 30)
