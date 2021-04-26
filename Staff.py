@@ -9,45 +9,25 @@ class Employee(object):
 
 
 workers = []
-staff00 = []
-staff01 = []
-staff02 = []
-staff03 = []
-for i in range(4):
+
+how_many_workers = int(input("Скольок работников добавить?: "))
+for i in range(how_many_workers):
     try:
         name = input("Имя: ")
         surname = input("Фамилия: ")
         year_hiring = int(input("Год постуления: "))
         e = Employee(name, surname, year_hiring)
-        if i == 0:
-            staff00.append(e)
-            workers.append(staff00)
-        elif i == 1:
-            staff01.append(e)
-            workers.append(staff01)
-        elif i == 2:
-            staff02.append(e)
-            workers.append(staff02)
-        elif i == 3:
-            staff03.append(e)
-            workers.append(staff03)
+        workers.append(e)
+        workers.append(workers[0] + workers[i])
 
-    except ValueError as error:
+    except (ValueError, TypeError) as error:
         print("Error: ", error)
 
 
 print("*"*30)
-for personal in staff00:
+for personal in workers:
     print(personal)
-print("*"*30)
-for personal in staff01:
-    print(personal)
-print("*"*30)
-for personal in staff02:
-    print(personal)
-print("*"*30)
-for personal in staff03:
-    print(personal)
+    print("*" * 30)
 
 
 
