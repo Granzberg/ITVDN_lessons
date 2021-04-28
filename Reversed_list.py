@@ -1,19 +1,24 @@
-class ReversedList(object):
-    def __init__(self, my_list=[]):
+class ReverseList:
+
+    def __init__(self, my_list):
         self.my_list = my_list
+        self.index = len(my_list)
 
-    def __getitem__(self, index):
-        if 0 >= index > 3:
-            return my_list.index(index)
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index == 0:
+            raise StopIteration
+        self.index = self.index - 1
+        return self.my_list[self.index]
 
 
-my_list = [1, 2, 5, 7, 32, 148]
-print(my_list.index(5))
-'''
-my_list = list(reversed(my_list))
-print(my_list)
-'''
-iter = ReversedList()
+rev = ReverseList([1, 2, 3, 4, 5, 6])
 
-print(iter(my_list))
-
+for char in rev:
+    print(char)
+my_list01 = [1, 2, 3, 4, 5, 6]
+print("*"*15)
+for i in my_list01:
+    print(i)
