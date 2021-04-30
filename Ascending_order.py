@@ -1,5 +1,6 @@
 sequence = int(input("Введите последовательность чисел: "))
+
 sequence = map(int, str(sequence))
-sequence = list(sequence)
-sequence.sort()
+sequence = sorted(sequence)
+
 print(sequence)
