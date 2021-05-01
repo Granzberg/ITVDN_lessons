@@ -4,21 +4,21 @@ args = list(args)
 print(args)
 
 
-def my_average(*numb):
+def my_average(number):
     the_sum = 0
-    for _ in numb:
+    for _ in number:
         the_sum = the_sum + _
 
-    x = len(numb)
+    x = len(number)
     the_sum = the_sum / x
     return the_sum
 
 
-def arg(*numb):
-    return sum(numb)/len(numb)
+def arg(numbers):
+    return float(sum(numbers))/len(numbers)
 
 
 print(my_average(args))
 
 print(arg(args))
-print(arg(*range(15)))
+
