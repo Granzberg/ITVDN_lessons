@@ -1,5 +1,12 @@
-my_url = 'https://www.youtube.com/watch?v=PsBC1Db2GYQ&ab_channel=PetrentoGames'
+my_url = input("Ссылка которую нужно сократить: ")
+my_new_name = input("Новое имя ссылки: ")
 
-emulator = {"https://www.youtube.com/PetrentoGames": my_url}
+emulator = {my_new_name: my_url}
 
-print(emulator.get('https://www.youtube.com/PetrentoGames'))
+link_request = input("Хотите получить свою ссылку(y/n): ")
+
+if link_request == "y":
+    print(emulator.get(my_new_name))
+else:
+    print("Спасибо. До свидания")
+
