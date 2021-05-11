@@ -1,0 +1,1 @@
+Goods(pen, 10, [Goods(notebook, 100, [Goods(pen, 10, [...])])]) Goods(notebook, 100, [Goods(pen, 10, [Goods(notebook, 100, [...])])])
