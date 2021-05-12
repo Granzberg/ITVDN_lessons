@@ -1,7 +1,4 @@
-my_array = {}
-
-
-def adding_to_dict(my_new_name, my_url):
+def adding_to_dict(my_new_name, my_url, my_array):
     # Функция которая создает ключ/значение и проверяет его что бы не было повторений.
     try:
         while True:
@@ -11,18 +8,15 @@ def adding_to_dict(my_new_name, my_url):
             if check != 0:
                 raise KeyError
             else:
-                print("Повторений нет")
                 my_array.update(new_values)
-                print(my_array)
-                break
+                return my_array
     except KeyError as error:
         print("Такой ключ существует\nСоздайте другой ключ!", error)
 
 
-def get_linc_from_dict(name):
-    print(my_array)
+def get_linc_from_dict(name, my_array):
     # Функия на выдачи сылки по ключу. Не импортирывать!.
-    my_array.get(name)
+    print(my_array.get(name))
 
 
 
