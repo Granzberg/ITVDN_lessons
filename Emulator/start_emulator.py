@@ -1,21 +1,27 @@
 import emulator
 
 
-my_url = input("Ссылка которую нужно сократить: ")
-my_new_name = input("Новое имя ссылки: ")
-#my_url = 'sdsdsdsdsd'
-#my_new_name = 'da'
+#my_url = input("Ссылка которую нужно сократить: ")
+#my_new_name = input("Новое имя ссылки: ")
+my_url = 'sdsdsdsdsd'
+my_new_name = 'da'
 
-print(emulator.Emulator.logic(my_url, my_new_name))
-print(emulator.Emulator.adding_to_dict(my_url, my_new_name))
+print(emulator.adding_to_dict(my_new_name, my_url))
 
+while True:
+    new_link_request = input("Хотите добавить еще ссылку?(y/n): ")
+    if new_link_request == "y":
+        my_url = input("Ссылка которую нужно сократить: ")
+        my_new_name = input("Новое имя ссылки: ")
+        emulator.adding_to_dict(my_new_name, my_url)
+        print(emulator.my_array)
+    elif new_link_request == "n":
+        break
 
-def loop():
-    new_link_request = input("Хотите добавить еще ссылку?(y/n/e): ")
-    print(emulator.Emulator.logic(new_link_request))
-
-def loop2():
+while True:
     link_request = input("Хотите получить свою ссылку(y/n): ")
-    print(emulator.Emulator.get_linc_from_dict(link_request))
-
-
+    if link_request == "y":
+        name = input("Имя: ")
+        print(emulator.get_linc_from_dict(name))
+    elif link_request == "n":
+        break
