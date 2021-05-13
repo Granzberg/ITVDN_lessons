@@ -30,8 +30,8 @@ while True:
 while True:
     ans = input('Показать БД?: ')
     if ans == 'y':
-        with shelve.open('data.txt') as db:
-            data = list(db.items())
+        with shelve.open('data') as db:
+            data = dict(db.items())
             print(data)
-    else:
+    elif ans == 'n':
         break

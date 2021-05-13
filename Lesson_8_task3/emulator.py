@@ -16,8 +16,8 @@ def adding_to_dict(my_new_name, my_url, my_array):
             else:
                 my_array.update(new_values)
                 return my_array
-    except KeyError as error:
-        print("Такой ключ существует\nСоздайте другой ключ!", error)
+    except (KeyError,) as error:
+        print("Такой ключ существует\nСоздайте другой ключ!")
 
 
 def get_linc_from_dict(name, my_array):
@@ -26,7 +26,8 @@ def get_linc_from_dict(name, my_array):
 
 
 def check_db():
-    db = shelve.open('data.txt')
+    filename = 'data'
+    db = shelve.open(filename)
     keys = dict(db.keys())
     db.close()
     return keys
