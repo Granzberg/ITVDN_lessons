@@ -8,10 +8,11 @@ def adding_to_dict(my_new_name, my_url, my_array):
             new_values = {my_new_name: my_url}
     # Проверка существует ли имя.
             check = my_array.get(my_new_name, 0)
+            x = tuple(new_values)
             check_data = check_db()
-            check1 = check_data.get(my_new_name, 0)
-
-            if check != 0 or check1 != 0:
+            if x > check_data:
+                return 0
+            if check != 0 or check_data != 0:
                 raise KeyError
             else:
                 my_array.update(new_values)
@@ -27,8 +28,8 @@ def get_linc_from_dict(name, my_array):
 
 def check_db():
     filename = 'data'
-    db = shelve.open(filename)
-    keys = dict(db.keys())
-    db.close()
+    with shelve.open(filename) as db:
+        for key in db.items():
+            keys = key
     return keys
 
