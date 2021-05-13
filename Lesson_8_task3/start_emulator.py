@@ -28,7 +28,7 @@ while True:
         break
 
 while True:
-    ans = input('Показать БД?: ')
+    ans = input('Показать БД?(y/n): ')
     if ans == 'y':
         with shelve.open('data') as db:
             data = dict(db.items())
