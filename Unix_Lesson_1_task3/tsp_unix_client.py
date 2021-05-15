@@ -1,8 +1,9 @@
 import socket
 
-sock = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-sock.connect(('localhost', 8000))
-num1 = int(input('a= '))
-num2 = int(input('b= '))
-sock.send(b'num1, num2')
+sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+sock.connect('unix.sock')
+sock.send(b'50, 15')
+result = sock.recv(1024)
+result = result.decode()
+print('Data:', result)
 sock.close()
