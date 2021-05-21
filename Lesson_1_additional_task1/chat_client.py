@@ -1,10 +1,7 @@
 import socket
 
-host = 'localhost'
-port = 8000
-
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect((host, port))
+sock.connect(('', 8000))
 message = input('Сообщение: ')
-sock.send(bytes(message.encode('utf-8')))
+sock.send(message.encode('utf-8'))
 sock.close()
