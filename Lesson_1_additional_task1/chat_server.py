@@ -1,17 +1,35 @@
 import socket
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(('localhost', 8000))
-client = []
+
+host = socket.gethostbyname(socket.gethostname())
+port = 8000
+
+clients = []
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind((host, port))
+sock.listen(5)
+
 print('Start')
+
+client, addr = sock.accept()
+
 while True:
-    data, addres = sock.recvfrom(1024)
-    print(addres[0], addres[1])
-    if addres not in client:
-        client.append(addres)
+    try:
+        print(addr[0], addr[1])
+        if addr not in clients:
+            clients.append(addr)
 
-    for clients in client:
-        if clients == addres:
-            continue
+    except KeyboardInterrupt:
+        sock.close()
+        print('Stop')
+        break
 
-        sock.sendto(data, clients)
+    else:
+        result = client.recv(1024)
+        print(result.decode('utf-8'))
+        for client in clients:
+            sock.sendto(result, client)
+            print('Sanded.')
+
+sock.close()
