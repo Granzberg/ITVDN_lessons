@@ -1,9 +1,7 @@
 import socket
 
-host = 'localhost'
-port = 8000
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind((host, port))
+sock.bind(('127.0.0.1', 8000))
 sock.listen(5)
 
 while True:
@@ -13,6 +11,6 @@ while True:
         sock.close()
         break
     else:
-        message = sock.recv(1024).strip()
-        print(message.decode('utf-8'))
+        message = client.recv(1024)
         client.close()
+        print('Сообщение: ', message.decode('utf-8'))
