@@ -1,5 +1,6 @@
 import os.path
-import threading
+from asyncio.coroutines import iscoroutine
+import asyncio
 import time
 
 
@@ -9,38 +10,33 @@ def read_file(data):
             print('Чтение файла')
             file = open(data, 'r')
             for line in file:
-                if line == 'Wow!':
+                if line == 'Wow!\n':
                     print(line, end='')
                 else:
-                    time.sleep(5)
-
+                    yield from time.sleep(5)
             file.close()
-            data_found.set()
-            data_found.clear()
             break
         else:
             time.sleep(5)
-            continue
 
 
-def delete():
+async def delete():
     print("Удаление файла")
-    data_found.wait()
     os.remove('data')
 
 
-data_found = threading.Event()
-
-task1 = threading.Thread(target=read_file)
-task2 = threading.Thread(target=delete)
-
-task1.start()
-task2.start()
-
-task1.join()
-task2.join()
+data = os.path.join('data')
 
 
-if __name__ == '__main__':
-    read_file(os.path.join('data'))
+event_loop = asyncio.get_event_loop()
+task_list = [
+    event_loop.create_task(read_file('data')),
+    event_loop.create_task(delete()),
+
+]
+tasks = asyncio.wait(task_list)
+event_loop.run_until_complete(tasks)
+event_loop.close()
+
+
 
