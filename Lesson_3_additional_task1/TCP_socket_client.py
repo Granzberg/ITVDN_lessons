@@ -1,17 +1,36 @@
-import socket
+import asyncio
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect(('localhost', 8000))
-while True:
-    a = input('a =  ')
-    b = input('b =  ')
-    message = a + ' ' + b
-    sock.send(message.encode('utf-8'))
-    data = str(sock.recv(1024), 'utf-8')
 
-    if data == 'close':
-        print('closed')
-        sock.close()
+class EchoClientProtocol(asyncio.Protocol):
+
+    try:
+        def __init__(self, message, loop):
+            self.message = message
+            self.loop = loop
+
+        def connection_made(self, transport):
+            transport.write(self.message.encode('utf-8'))
+            print('Data sent: {!r}'.format(self.message))
+            if message == 'close':
+                raise KeyError
+
+    except KeyError:
+        def connection_lost(exc):
+            print('The server closed the connection')
+            print('Stop the event loop')
+            loop.stop()
+
     else:
-        print(data)
-        continue
+        def data_received(self, data):
+            data = 'Data received: {!r}'.format(data.decode('utf-8'))
+            print(data)
+
+
+loop = asyncio.get_event_loop()
+
+message = input('Сообщение: ')
+
+coro = loop.create_connection(lambda: EchoClientProtocol(message, loop), 'localhost', 8000)
+loop.run_until_complete(coro)
+loop.run_forever()
+loop.close()
