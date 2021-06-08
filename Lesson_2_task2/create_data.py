@@ -2,10 +2,10 @@ import xml.etree.ElementTree as ET
 
 tree = ET.parse('data.xml')
 root = tree.getroot()
-workers = list(tree.iter())  # root.getchildren() - эта конструкция устарела...
+#workers = list(tree.iter())  # root.getchildren() - эта конструкция устарела...
 
 
-for person_data in workers:
+for person_data in root:
     print('PK: ', (person_data.attrib, person_data.get('pk')))
     element1 = getattr(person_data.find('./first_name'), 'text', None)
     element2 = getattr(person_data.find('./last_name'), 'text', None)
@@ -30,7 +30,7 @@ for values in zip(first_names, last_names, ages):
 
 print('*'*75)
 
-for person_data in workers:
+for person_data in root:
     print('PK: ', person_data.attrib)
     for worker in person_data:
         print('{} {}'.format(worker.tag, worker.text))
