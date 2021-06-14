@@ -1,4 +1,5 @@
 import csv
+from xml.etree import ElementTree as ET
 
 
 def create():
@@ -46,13 +47,21 @@ def read_row():
 
 
 def import_xml():
-    export_data = {}
+    root = ET.Element('records')
+    export_data = []
     reader = csv.DictReader(open('data.csv'))
     for row in reader:
-        export_data.update(row)
+        export_data.append(row)
+        for row in export_data:
+            record = ET.SubElement(root, 'records')
+            for key, value in row.items():
+                e = ET.SubElement(record, key)
+                e.text = str(value)
+        print(row)
 
 
-#create()
-#additional_recording()
+
+create()
+additional_recording()
 read_row()
 import_xml()
