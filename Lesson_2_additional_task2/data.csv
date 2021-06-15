@@ -1,2 +1,2 @@
-"id","weight","height","material_characteristics"
-"1","20","50","('char', ('characteristic', 'value'), ('value', 'value'))"
+"id","weight","height","material_characteristics"
+"1","20","50","[('characteristic', 'value'), ('value', 'value')]"

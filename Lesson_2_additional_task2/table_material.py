@@ -14,6 +14,6 @@ with open('data.csv', 'w') as file:
         'id': '1',
         'weight': 20,
         'height': 50,
-        'material_characteristics': ('char', ('characteristic', 'value'), ('value', 'value')),
+        'material_characteristics': [('characteristic', 'value'), ('value', 'value')],
     })
 
